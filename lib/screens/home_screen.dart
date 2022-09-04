@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:test_app/screens/add_task.dart';
-import 'package:test_app/screens/all_tasks.dart';
-import 'package:test_app/utils/app_colors.dart';
-import 'package:test_app/widgets/button_widget.dart';
+import 'package:taskmanagerapp/screens/add_task.dart';
+import 'package:taskmanagerapp/screens/all_tasks.dart';
+import 'package:taskmanagerapp/utils/app_colors.dart';
+import 'package:taskmanagerapp/widgets/button_widget.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {

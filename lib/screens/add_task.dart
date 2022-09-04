@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:test_app/utils/app_colors.dart';
-import 'package:test_app/widgets/button_widget.dart';
-import 'package:test_app/widgets/textfield_widget.dart';
+import 'package:taskmanagerapp/utils/app_colors.dart';
+import 'package:taskmanagerapp/utils/db_controller.dart';
+import 'package:taskmanagerapp/widgets/button_widget.dart';
+import 'package:taskmanagerapp/widgets/textfield_widget.dart';
 import 'package:get/get.dart';
 
 class AddTask extends StatelessWidget {
@@ -60,10 +61,24 @@ class AddTask extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                ButtonWidget(
-                    backgroundcolor: AppColors.mainColor,
-                    text: "Add",
-                    textColor: Colors.white)
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    elevation: 0,
+                    primary: Colors.transparent,
+                  ),
+                  child: ButtonWidget(
+                      backgroundcolor: AppColors.mainColor,
+                      text: "Add",
+                      textColor: Colors.white),
+                  onPressed: () async {
+                    await DBController.addItem(
+                        task_name: nameController.text,
+                        description: detailsController.text);
+                    nameController.clear();
+                    detailsController.clear();
+                  },
+                ),
               ],
             ),
             SizedBox(
